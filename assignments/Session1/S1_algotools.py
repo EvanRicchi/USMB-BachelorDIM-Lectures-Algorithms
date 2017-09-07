@@ -99,6 +99,74 @@ message='The reversed list is {after_reverse}'.format(after_reverse=reversed_lis
 print(message)
 
 
+# Matrix processing lib
+import numpy as np
+
+# Set a value in a specific cell
+"""
+myMat[1,3]=1
+"""
+
+# Filling something in the matrix
+"""
+for row in range(5,8):
+        for col in range(7,9):
+            myMat[row,col]=1
+print(myMat)
+"""
+# Filling something in the matrix (a nice way)
+"""
+myMat[2:4,5:9]=1
+myMat[2:4,5:9]=np.ones([2,4])
+print(myMat)
+"""
+# Output coordinates matrix
+"""
+bbox_coords=np.zeros([4,2], dtype=int)
+"""
+def roi_bbox(input_image):
+    ##
+    # Function able to compute the bounding box coordinates of an object
+    # @param input_image: the input image to be scanned
+    
+    # Initialise variables 
+    # [xmin,ymin;xmax,ymin]
+    # [xmin,ymax;xmax,ymax]
+    #
+    size_rows=10
+    size_cols=10
+    xmin=size_cols
+    xmax=0
+    ymin=size_rows
+    ymax=0
+    
+    # Compute coordonates of the bounding box 
+    for row in range(0,size_rows):
+        for cols in range(0,size_cols):
+            if input_image[row,cols]>0:
+                if xmin>row:
+                    xmin=row
+                if xmax<row:
+                    xmax=row
+                if ymin>cols:
+                    ymin=cols
+                if ymax<cols:
+                    ymax=cols
+    
+    bounding_box_coordinates = np.array([[ymin,xmin],[ymax,xmin],[ymin,ymax],[ymax,xmax]])
+    return bounding_box_coordinates
+
+# Initialise matrice and testing bbox function
+size_rows=10
+size_cols=10
+myMat=np.zeros([size_rows, size_cols], dtype=int)
+myMat[2:4,5:9]=np.ones([2,4])
+coordinates_bbox=roi_bbox(myMat)
+print(coordinates_bbox)
+print(myMat)
+
+        
+
 
 
 
