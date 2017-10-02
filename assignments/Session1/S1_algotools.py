@@ -234,7 +234,29 @@ def remove_whitespace(input_string):
 # Testing remove_whitespace function
 test = "This is a sentence with whitespaces"
 result = remove_whitespace(test)
-print(result)        
+print(result)
+
+# Importation of the the library random
+import random
+
+def shuffle(input_list):
+    ##
+    # Function able to efficiently randomly select items of a list
+    # @param input_list: the input list to be scanned
+
+    # Initialise variables
+    list_size=len(input_list)
+
+    # Compute the shuffle
+    input_list = random.sample(input_list, list_size)   
+
+    # @return: return the list with randomy select items
+    return input_list
+
+# Testing shuffle function
+test_list = [1,2,3,4,5]
+shuffle_test = shuffle(test_list)
+print(shuffle_test)        
 
 
 
