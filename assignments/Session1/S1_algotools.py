@@ -208,7 +208,7 @@ input_array=np.chararray((10, 10))
 input_array[:] = ''
 
 vfill= input_array.size
-random = alea(vfill)
+alea = random(vfill)
 
 result = random_fill_sparse(input_array,random)
 print(result)
