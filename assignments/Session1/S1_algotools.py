@@ -213,7 +213,28 @@ random = alea(vfill)
 result = random_fill_sparse(input_array,random)
 print(result)
 
-        
+def remove_whitespace(input_string):
+    ##
+    # Function able to parse a string and remove all its whitespace
+    # without the use of any other table
+    # @param input_string: the input string to be scanned
+
+    # Initialise variable
+    string = ""
+     
+    # Find whitespaces and put characters expect whitespaces in a variable called string
+    for i in input_string:
+        if i != " ":
+            string += i
+
+    # @return: return the string without whitespaces
+    return string; 
+ 
+
+# Testing remove_whitespace function
+test = "This is a sentence with whitespaces"
+result = remove_whitespace(test)
+print(result)        
 
 
 
