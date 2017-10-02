@@ -258,6 +258,84 @@ test_list = [1,2,3,4,5]
 shuffle_test = shuffle(test_list)
 print(shuffle_test)        
 
+def sort_selective(list_in):
+    ##
+    # Function able to sort a list with the selective way
+    # @param list_in: the input list to be sorted
+
+    # Initialise variables
+    i=0
+    min_index=0
+    mini=0
+
+    
+    # Compute the sort of the list
+    for i in range(len(list_in)):
+        mini = min(list_in[i:]) 
+        min_index = list_in[i:].index(mini) 
+        list_in[i + min_index] = list_in[i] 
+        list_in[i] = mini                  
+        
+    # @return the sorted list
+    return list_in
+ 
+# Testing sort_selective function
+test_list = [10, 15, 7, 1, 3, 3, 9]
+test_sort_selective = sort_selective(test_list)
+print (test_sort_selective)
+ 
+# (a) Illustrate the algorithm on the following vector sample : 10, 15, 7, 1, 3, 3, 9
+# Done
+# (b) Does the number of iterations depend on the vector content ?
+# Yes, there are more or less complex situations 
+# (c) How many iterations are required to sort the whole vector ?
+# Here 7
+# (d) How many permutations are applied ?
+# There is n swaps, here 7
+# (e) How many comparisons are applied ?
+# There is n2 comparaisons, here 49
+# (f) Can you quantify the algorithm complexity ?
+#  O(n2), it's not an effective algorithm for large lists
+# (g) Compare the number of permutations and comparisons for input vectors of varying sizes : 50, 100 and 500
+# permutations : 50 -> 50, 100->100, 500->500
+# comparaisons : 50 -> 2500, 100->10000, 500->250000
+
+
+def sort_bubble(list_in):
+    ##
+    # Function able to sort a list with the bubble way
+    # @param list_in: the input list to be sorted
+    for nums in range(len(list_in)-1,0,-1):
+        for i in range(nums):
+            if list_in[i]>list_in[i+1]:
+                temp = list_in[i]
+                list_in[i] = list_in[i+1]
+                list_in[i+1] = temp
+
+    # @return the sorted list
+    return list_in
+
+# Testing sort_selective function
+test_list = [10, 15, 7, 1, 3, 3, 9]
+test_sort_bubble = sort_bubble(test_list)
+print (test_sort_bubble)
+
+# (a) Illustrate the algorithm on the following vector sample : 10, 15, 7, 1, 3, 3, 9
+# Done
+# (b) Does the number of iterations depend on the vector content ?
+# Yes, depend of the case 
+# (c) How many iterations are required to sort the whole vector ?
+# 
+# (d) How many permutations are applied ?
+# n2 permutations, here 49
+# (e) How many comparisons are applied ?
+# n2 permutations, here 49
+# (f) Can you quantify the algorithm complexity ?
+# O(n) in best case,  O(n2) in Worst-case performance
+# (g) Compare the number of permutations and comparisons for input vectors of varying sizes : 50, 100 and 500
+# permutations : 50 -> 2500, 100->10000, 500->250000
+# comparaisons : 50 -> 2500, 100->10000, 500->250000
+
 
 
 
