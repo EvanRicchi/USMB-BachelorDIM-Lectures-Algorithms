@@ -140,7 +140,7 @@ def roi_bbox(input_image):
     ymin=size_rows
     ymax=0
     
-    # Compute coordonates of the bounding box 
+    # Compute coordinates of the bounding box 
     for row in range(0,size_rows):
         for cols in range(0,size_cols):
             if input_image[row,cols]>0:
@@ -164,6 +164,54 @@ myMat[2:4,5:9]=np.ones([2,4])
 coordinates_bbox=roi_bbox(myMat)
 print(coordinates_bbox)
 print(myMat)
+
+def random_fill_sparse(input_array, vfill):
+    ##
+    # Function able to fill K cells with value X while the others
+    # should remain empty with a 2D array of shape N X N whose cell type is char
+    # @param input_array: the input array to be scanned
+    # @param vfill: a random number
+
+    # Initialise variables
+    table_size = len(input_array)
+    i = 0
+    
+    #Fill the table until the counter is equal to zero
+    for rows in range(0,table_size):
+        for cols in range(0,table_size):
+            if i < vfill:
+                input_array[rows,cols]='X'
+                i+=1
+    
+    # @return: return the array fill with the value X                          
+    return input_array             
+
+# Importation of the function randint from the library random
+from random import randint
+
+def random(vfill):
+    ##
+    # Function able to return a random number
+    # @param input_array: the input array to be scanned
+    # @param vfill: a random number
+
+    random = randint(0,vfill)
+
+    # @return: return a random number
+    return random
+
+
+
+# Initialise input array and testing random_fill_sparse function
+
+input_array=np.chararray((10, 10))
+input_array[:] = ''
+
+vfill= input_array.size
+random = alea(vfill)
+
+result = random_fill_sparse(input_array,random)
+print(result)
 
         
 
