@@ -29,10 +29,12 @@ def average_above_zero(input_list):
     return float(average)
 
 # Testing average above zero function :
-mylist=[1,2,3,4,-7]
+"""
+mylist=[-1,-1,-3,-4,-7]
 result=average_above_zero(mylist)
 message='The average of positive samples of {list_values} is {res}'.format(list_values=mylist,res=result)
 print(message)
+"""
 
 def max_value(input_list):
     ##
@@ -59,13 +61,15 @@ def max_value(input_list):
         if max_val<item:
             max_val=item
             max_idx=idx
-    return max_val, max_idx
+    return max_val
 
 # Testing max value function :
+"""
 mylist2=[-1,2,-20]
 mymax, mymaxidx=max_value(mylist2)
 message='Max value of {input_list} is {max_scan} with the position {idx}'.format(input_list=mylist2,max_scan=mymax,idx=mymaxidx)
 print(message)
+"""
 
 def reverse_table(input_list):
     ##
@@ -76,27 +80,28 @@ def reverse_table(input_list):
     # First check if provided list is not empty
     if len(input_list)==0:
         raise ValueError('provided list is empty')
-    
+    """
     lastIdx=len(input_list)
     # Compute a list reversed
+    
     for idx in range(len(input_list)/2):
         lastIdx-=1
         popped=input_list[idx]
         input_list[idx]=input_list[lastIdx]
         input_list[lastIdx]=popped
         return input_list
-        
+    """   
     # Compute a list reversed using python slice notation
-    """
     reversed_list=input_list[::-1]
     return reversed_list
-    """
-    
+      
 # Testing reverse table function :
-mylist3=[-1,2,-20]
+"""
+mylist3=[1,2,3,4,-7]
 reversed_list=reverse_table(mylist3)
 message='The reversed list is {after_reverse}'.format(after_reverse=reversed_list)
 print(message)
+"""
 
 
 # Matrix processing lib
@@ -157,6 +162,7 @@ def roi_bbox(input_image):
     return bounding_box_coordinates
 
 # Initialise matrice and testing bbox function
+"""
 size_rows=10
 size_cols=10
 myMat=np.zeros([size_rows, size_cols], dtype=int)
@@ -164,6 +170,7 @@ myMat[2:4,5:9]=np.ones([2,4])
 coordinates_bbox=roi_bbox(myMat)
 print(coordinates_bbox)
 print(myMat)
+"""
 
 def random_fill_sparse(input_array, vfill):
     ##
@@ -210,7 +217,7 @@ input_array[:] = ''
 vfill= input_array.size
 alea = random(vfill)
 
-result = random_fill_sparse(input_array,random)
+result = random_fill_sparse(input_array,alea)
 print(result)
 
 def remove_whitespace(input_string):
@@ -232,9 +239,11 @@ def remove_whitespace(input_string):
  
 
 # Testing remove_whitespace function
+"""
 test = "This is a sentence with whitespaces"
 result = remove_whitespace(test)
 print(result)
+"""
 
 # Importation of the the library random
 import random
@@ -280,9 +289,11 @@ def sort_selective(list_in):
     return list_in
  
 # Testing sort_selective function
+"""
 test_list = [10, 15, 7, 1, 3, 3, 9]
 test_sort_selective = sort_selective(test_list)
 print (test_sort_selective)
+"""
  
 # (a) Illustrate the algorithm on the following vector sample : 10, 15, 7, 1, 3, 3, 9
 # Done
@@ -316,10 +327,11 @@ def sort_bubble(list_in):
     return list_in
 
 # Testing sort_selective function
+"""
 test_list = [10, 15, 7, 1, 3, 3, 9]
 test_sort_bubble = sort_bubble(test_list)
 print (test_sort_bubble)
-
+"""
 # (a) Illustrate the algorithm on the following vector sample : 10, 15, 7, 1, 3, 3, 9
 # Done
 # (b) Does the number of iterations depend on the vector content ?
