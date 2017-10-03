@@ -115,7 +115,7 @@ def test_sort_selective():
     # Test with a list of negative values
     assert algo.sort_selective(test_string) == [-15, -10, -9, -7, -3, -3, -1]
 
-def sort_bubble():
+def test_sort_bubble():
     ##
     # Basic function able to test sort_bubble function
 
