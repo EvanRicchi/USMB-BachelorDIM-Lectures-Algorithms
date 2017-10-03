@@ -100,3 +100,31 @@ def test_remove_whitespace():
     test_string="Thisisatest123"
     # Test with a string without whitespaces
     assert algo.remove_whitespace(test_string) == "Thisisatest123"
+    
+def test_sort_selective():
+    ##
+    # Basic function able to test sort_selective function
+
+    # Initialise test list    
+    test_list=[10, 15, 7, 1, 3, 3, 9]
+    # Test with a ordinary list
+    assert algo.sort_selective(test_list) == [1, 3, 3, 7, 9, 10, 15]
+    
+    # Initialise test string    
+    test_string=[-10, -15, -7, -1, -3, -3, -9]
+    # Test with a list of negative values
+    assert algo.sort_selective(test_string) == [-15, -10, -9, -7, -3, -3, -1]
+
+def sort_bubble():
+    ##
+    # Basic function able to test sort_bubble function
+
+    # Initialise test list    
+    test_list=[10, 15, 7, 1, 3, 3, 9]
+    # Test with a ordinary list
+    assert algo.sort_bubble(test_list) == [1, 3, 3, 7, 9, 10, 15]
+    
+    # Initialise test string    
+    test_string=[-10, -15, -7, -1, -3, -3, -9]
+    # Test with a list of negative values
+    assert algo.sort_bubble(test_string) == [-15, -10, -9, -7, -3, -3, -1]
