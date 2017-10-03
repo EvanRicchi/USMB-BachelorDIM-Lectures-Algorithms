@@ -86,3 +86,17 @@ def test_shuffle():
     test_list=[1,2,3]
     # Test all the possibilities with a shuffle
     assert algo.shuffle(test_list) == [1,2,3] or [2,1,3] or [2,3,1] or [1,3,2] or [3,1,2] or [3,2,1]
+
+def test_remove_whitespace():
+    ##
+    # Basic function able to test remove_whitespace function
+
+    # Initialise test string    
+    test_string="This is a test 1 2 3"
+    # Test with a ordinary string
+    assert algo.remove_whitespace(test_string) == "Thisisatest123"
+    
+    # Initialise test string    
+    test_string="Thisisatest123"
+    # Test with a string without whitespaces
+    assert algo.remove_whitespace(test_string) == "Thisisatest123"
