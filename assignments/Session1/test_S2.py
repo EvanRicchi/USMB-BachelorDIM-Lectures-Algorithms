@@ -50,6 +50,6 @@ def test_reverse_table():
     # Basic function able to test reverse_table function
     
     test_list=[1,2,3,4,-7]
-    algo.max_value(test_list) == [-7,4,3,2,1]
-    
+    test_reversed_list=[-7,4,3,2,1]
+    assert  algo.reverse_table(test_list) == test_reversed_list
     
