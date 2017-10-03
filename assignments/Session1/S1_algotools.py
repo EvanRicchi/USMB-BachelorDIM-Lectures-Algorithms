@@ -26,15 +26,9 @@ def average_above_zero(input_list):
     # Compute the final average
     average=float(positive_values_sum)/float(positive_values_count)
     print('Positive elements average is '+str(average))
+    
+    # @return: return the average of the positive elements of the list
     return float(average)
-
-# Testing average above zero function :
-"""
-mylist=[-1,-1,-3,-4,-7]
-result=average_above_zero(mylist)
-message='The average of positive samples of {list_values} is {res}'.format(list_values=mylist,res=result)
-print(message)
-"""
 
 def max_value(input_list):
     ##
@@ -45,31 +39,20 @@ def max_value(input_list):
     # First check if provided list is not empty
     if len(input_list)==0:
         raise ValueError('provided list is empty')
+    
     # Init max value
     max_val=input_list[0]
     max_idx=0
+    
     # Compute the max value elements of a list
-    """
-    for item in input_list:
-        # Select only positive items
-        if max_val<item:
-            max_val=item
-    return max_val
-    """
     for idx, item in enumerate(input_list):
         # Select only positive items
         if max_val<item:
             max_val=item
             max_idx=idx
+            
+    # @return: return the max value of a list
     return max_val
-
-# Testing max value function :
-"""
-mylist2=[-1,2,-20]
-mymax, mymaxidx=max_value(mylist2)
-message='Max value of {input_list} is {max_scan} with the position {idx}'.format(input_list=mylist2,max_scan=mymax,idx=mymaxidx)
-print(message)
-"""
 
 def reverse_table(input_list):
     ##
@@ -80,55 +63,28 @@ def reverse_table(input_list):
     # First check if provided list is not empty
     if len(input_list)==0:
         raise ValueError('provided list is empty')
-    """
+    
     lastIdx=len(input_list)
     # Compute a list reversed
     
-    for idx in range(len(input_list)/2):
+    for idx in range(int(len(input_list)/2)):
         lastIdx-=1
         popped=input_list[idx]
         input_list[idx]=input_list[lastIdx]
         input_list[lastIdx]=popped
-        return input_list
+        
+    # @return: return the reversed list
+    return input_list
+    
     """   
     # Compute a list reversed using python slice notation
     reversed_list=input_list[::-1]
     return reversed_list
-      
-# Testing reverse table function :
-"""
-mylist3=[1,2,3,4,-7]
-reversed_list=reverse_table(mylist3)
-message='The reversed list is {after_reverse}'.format(after_reverse=reversed_list)
-print(message)
-"""
-
-
+    """
+    
 # Matrix processing lib
 import numpy as np
 
-# Set a value in a specific cell
-"""
-myMat[1,3]=1
-"""
-
-# Filling something in the matrix
-"""
-for row in range(5,8):
-        for col in range(7,9):
-            myMat[row,col]=1
-print(myMat)
-"""
-# Filling something in the matrix (a nice way)
-"""
-myMat[2:4,5:9]=1
-myMat[2:4,5:9]=np.ones([2,4])
-print(myMat)
-"""
-# Output coordinates matrix
-"""
-bbox_coords=np.zeros([4,2], dtype=int)
-"""
 def roi_bbox(input_image):
     ##
     # Function able to compute the bounding box coordinates of an object
@@ -159,18 +115,8 @@ def roi_bbox(input_image):
                     ymax=cols
     
     bounding_box_coordinates = np.array([[ymin,xmin],[ymax,xmin],[ymin,ymax],[ymax,xmax]])
+    # @return: return the coordinates of the bounding box
     return bounding_box_coordinates
-
-# Initialise matrice and testing bbox function
-"""
-size_rows=10
-size_cols=10
-myMat=np.zeros([size_rows, size_cols], dtype=int)
-myMat[2:4,5:9]=np.ones([2,4])
-coordinates_bbox=roi_bbox(myMat)
-print(coordinates_bbox)
-print(myMat)
-"""
 
 def random_fill_sparse(input_array, vfill):
     ##
@@ -207,25 +153,16 @@ def random(vfill):
     # @return: return a random number
     return random
 
-
-
-# Initialise input array and testing random_fill_sparse function
-
-input_array=np.chararray((10, 10))
-input_array[:] = ''
-
-vfill= input_array.size
-alea = random(vfill)
-
-result = random_fill_sparse(input_array,alea)
-print(result)
-
 def remove_whitespace(input_string):
     ##
     # Function able to parse a string and remove all its whitespace
     # without the use of any other table
     # @param input_string: the input string to be scanned
-
+    
+    # First check if provided string is not empty
+    if len(input_string)==0:
+        raise ValueError('provided string is empty')
+        
     # Initialise variable
     string = ""
      
@@ -236,48 +173,40 @@ def remove_whitespace(input_string):
 
     # @return: return the string without whitespaces
     return string; 
- 
 
-# Testing remove_whitespace function
-"""
-test = "This is a sentence with whitespaces"
-result = remove_whitespace(test)
-print(result)
-"""
-
-# Importation of the the library random
-import random
-
+import random as rd
 def shuffle(input_list):
     ##
     # Function able to efficiently randomly select items of a list
     # @param input_list: the input list to be scanned
-
+    
+    # First check if provided list is not empty
+    if len(input_list)==0:
+        raise ValueError('provided list is empty')
+        
     # Initialise variables
     list_size=len(input_list)
 
     # Compute the shuffle
-    input_list = random.sample(input_list, list_size)   
+    input_list = rd.sample(input_list, list_size)   
 
     # @return: return the list with randomy select items
     return input_list
-
-# Testing shuffle function
-test_list = [1,2,3,4,5]
-shuffle_test = shuffle(test_list)
-print(shuffle_test)        
-
+     
 def sort_selective(list_in):
     ##
     # Function able to sort a list with the selective way
     # @param list_in: the input list to be sorted
-
+    
+    # First check if provided list is not empty
+    if len(list_in)==0:
+        raise ValueError('provided list is empty')    
+    
     # Initialise variables
     i=0
     min_index=0
     mini=0
 
-    
     # Compute the sort of the list
     for i in range(len(list_in)):
         mini = min(list_in[i:]) 
@@ -287,13 +216,6 @@ def sort_selective(list_in):
         
     # @return the sorted list
     return list_in
- 
-# Testing sort_selective function
-"""
-test_list = [10, 15, 7, 1, 3, 3, 9]
-test_sort_selective = sort_selective(test_list)
-print (test_sort_selective)
-"""
  
 # (a) Illustrate the algorithm on the following vector sample : 10, 15, 7, 1, 3, 3, 9
 # Done
@@ -311,10 +233,14 @@ print (test_sort_selective)
 # permutations : 50 -> 50, 100->100, 500->500
 # comparaisons : 50 -> 2500, 100->10000, 500->250000
 
-
 def sort_bubble(list_in):
     ##
     # Function able to sort a list with the bubble way
+
+    # First check if provided list is not empty
+    if len(list_in)==0:
+        raise ValueError('provided list is empty')
+        
     # @param list_in: the input list to be sorted
     for nums in range(len(list_in)-1,0,-1):
         for i in range(nums):
@@ -326,12 +252,6 @@ def sort_bubble(list_in):
     # @return the sorted list
     return list_in
 
-# Testing sort_selective function
-"""
-test_list = [10, 15, 7, 1, 3, 3, 9]
-test_sort_bubble = sort_bubble(test_list)
-print (test_sort_bubble)
-"""
 # (a) Illustrate the algorithm on the following vector sample : 10, 15, 7, 1, 3, 3, 9
 # Done
 # (b) Does the number of iterations depend on the vector content ?
@@ -347,9 +267,3 @@ print (test_sort_bubble)
 # (g) Compare the number of permutations and comparisons for input vectors of varying sizes : 50, 100 and 500
 # permutations : 50 -> 2500, 100->10000, 500->250000
 # comparaisons : 50 -> 2500, 100->10000, 500->250000
-
-
-
-
-
-
