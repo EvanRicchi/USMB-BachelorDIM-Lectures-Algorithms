@@ -77,3 +77,12 @@ def test_roi_bbox():
     
     # Using assert_array_equal function from numpy to compare 2 numpy array
     assert_array_equal(algo.roi_bbox(myMat),test_numpy_array)
+    
+def test_shuffle():
+    ##
+    # Basic function able to test shuffle function
+
+    # Initialise test list    
+    test_list=[1,2,3]
+    # Test all the possibilities with a shuffle
+    assert algo.shuffle(test_list) == [1,2,3] or [2,1,3] or [2,3,1] or [1,3,2] or [3,1,2] or [3,2,1]
